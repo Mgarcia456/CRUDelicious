@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View One</title>
+</head>
+<body>
+    @model Dish
+    <div class="text-center">
+        <h1 class="display-4">@Model.Name</h1>
+        <p><a href="/">Home</a> | <a href="/dishes/new">Add a Dish</a></p>
+    </div>
+    <div>
+        <p><u>@Model.Name by @Model.Chef</u></p>
+        <p class="font-weight-bold">@Model.Description</p>
+        <p class="font-weight-bold">Calories: @Model.Calories</p>
+        <p class="font-weight-bold">Tastiness: @Model.Tastiness</p>
+    </div>
+    <div>
+        <form asp-action="DestroyDish" asp-controller="Home"
+        asp-route-DishId="@Model.DishId" method="post">
+            <input type="submit" value="Exterminate" class="btn btn-danger">
+        </form>
+        <p><a href="/dishes/@Model.DishId/edit" class="btn btn-info">Edit</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit a Dish</title>
+</head>
+<body>
+    @model Dish
+    <div class="text-center">
+        <h1 class="display-4">Edit @Model.Name</h1>
+        <p><a href="/">Home</a> | <a href="/dishes/new">Add a Dish</a></p>
+    </div>
+    <form asp-action="UpdateDish" asp-controller="Home" asp-route-DishId="@Model.DishId" method="post">
+        <div class="mb-3">
+            <label asp-for="Chef">Chef's Name</label>
+            <input asp-for="Chef" class="form-control">
+            <span asp-validation-for="Chef" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Name">Name of Dish</label>
+            <input asp-for="Name" class="form-control">
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Calories"># of Calories</label>
+            <input asp-for="Calories" type="number" class="form-control">
+            <span asp-validation-for="Calories" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Tastiness">Tastiness</label>
+            <input asp-for="Tastiness" type="number" class="form-control">
+            <span asp-validation-for="Tastiness" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Description">Description</label>
+            <input asp-for="Description" class="form-control">
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <input type="submit" value="Edit Dish" class="btn btn-info">
+    </form>
+</body>
+</html>
